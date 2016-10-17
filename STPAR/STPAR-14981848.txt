@@ -1,0 +1,70 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int n=0;
+		while(true)
+		{
+			n=sc.nextInt();
+			if(n==0)
+				break;
+			int in[]=new int[n];
+			int stack[]=new int[n];
+			int order[]=new int[n+1];
+			int seq=1;
+			int i=0,j=0;
+			while(n!=0)
+			{
+				in[i]=sc.nextInt();
+				if(in[i]==seq)
+				{
+					order[seq++]=in[i++];
+				}
+				else
+				{
+					if(j>0 && stack[j-1]==seq)
+					{
+						order[seq++]=stack[j-1];
+						int k=j-2;
+						while(k>=0)
+						{
+							if(stack[k]==seq)
+							{
+								order[seq++]=stack[k--];
+							}
+							else
+								break;
+						}
+						j=k+1;
+						stack[j++]=in[i++];
+					}
+				else if(j>0 && stack[j-1]!=0 && stack[j-1]>in[i])
+				{
+					stack[j++]=in[i];
+				}
+				else if(j==0)
+					stack[j++]=in[i];
+				else
+				{
+					System.out.println("no");
+					String tp=sc.nextLine();
+					break;
+				}
+			}
+				n--;
+		}
+		if(n==0)
+		{
+			System.out.println("yes");
+		}
+	}
+
+
+	}
+}

@@ -1,0 +1,46 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n==1)
+			System.out.print("1");
+		else
+		{
+			int iterations=0;
+			for(int i=1;i<=100;i++)
+			{
+				if(Math.pow(i,2)>n)
+				{
+					iterations=i-1;
+					break;
+				}
+				else if(Math.pow(i, 2)==n)
+				{
+					iterations=i;
+					break;
+				}
+
+			}
+			int sum=0;
+			for(int i=2;i<=iterations;i++)
+			{
+				if(i!=2)
+					sum+=(n/i)-(i-1);
+				else
+					sum+=(n/i);
+			}
+			sum=sum+(n-1);
+			System.out.print(sum);
+		}
+
+	
+		
+	}
+}

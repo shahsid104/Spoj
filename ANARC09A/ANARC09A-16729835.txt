@@ -1,0 +1,60 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Stack st=new Stack();
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		int j=0;
+		while(true)
+		{
+		  j++;	
+		  String value=br.readLine();
+		  //System.out.println(value);
+		  int count=0;
+		  if(value.charAt(0)=='-')
+			  break;
+		  else
+		  {
+		  for(int i=0;i<value.length();i++)
+		  {
+			  if(st.isEmpty())
+			  {
+				  st.push(new Character(value.charAt(i)));
+				  //System.out.println("Pushing "+value.charAt(i));
+			  }
+			  else if(st.peek().equals(new Character('{')) && value.charAt(i)=='}' )
+			  {
+				 st.pop();
+			  }
+			  else
+			  {
+				  st.push(new Character(value.charAt(i)));
+				 // System.out.println("Pushing "+value.charAt(i)+" Value at top "+st.peek());
+			  }
+		  }
+		  }
+		  while(!st.empty())
+		  {
+			  Object a;
+			  a=st.pop();
+			  if(!st.isEmpty())
+			  {
+				  if(!a.equals(st.peek()))
+             		count=count+2;
+				  else
+					  count++;
+				  st.pop();
+			  }
+		  }
+		  System.out.println(j+". "+count);
+		}
+	}
+}

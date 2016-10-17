@@ -1,0 +1,57 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		StringTokenizer st=new StringTokenizer(br.readLine());
+		int n=0,p=0,s=0,pret=0;
+		if(st.hasMoreTokens())
+			n=Integer.parseInt(st.nextToken());
+		if(st.hasMoreTokens())
+			p=Integer.parseInt(st.nextToken());
+		
+		ArrayList<Stack<Integer>> a=new ArrayList<Stack<Integer>>();
+		
+		for(int i=0;i<=6;i++)
+			a.add(new Stack<Integer>());
+		long count=0;
+		while(n!=0)
+		{
+			st=new StringTokenizer(br.readLine());
+			if(st.hasMoreTokens())
+				s=Integer.parseInt(st.nextToken());
+			if(st.hasMoreTokens())
+				pret=Integer.parseInt(st.nextToken());
+			
+			if(a.get(s).isEmpty())
+			{
+				a.get(s).push(pret);
+				count++;
+			}
+			else
+			{
+				while(!a.get(s).isEmpty() && a.get(s).peek()>pret)
+				{
+					a.get(s).pop();
+					count++;
+				}
+				if(a.get(s).isEmpty() || a.get(s).peek()!=pret)
+				{
+					a.get(s).push(pret);
+					count++;
+				}
+			}
+			n--;
+		}
+		
+		System.out.println(count);
+	}
+}

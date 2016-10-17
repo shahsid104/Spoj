@@ -1,0 +1,70 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		
+		// TODO Auto-generated method stu
+		Scanner sc=new Scanner(System.in);
+		long t;
+		t=sc.nextLong();
+		sc.nextLine();
+		while(t>0)
+		{
+			String inp=sc.nextLine();
+			if(inp.isEmpty())
+			 continue;
+			StringTokenizer st=new StringTokenizer(inp,"*,/,+,-,=,%",true);
+			long sum=Long.parseLong(st.nextToken().trim());
+			//System.out.println(sum);
+			while(st.hasMoreTokens())
+			{
+				if(st.hasMoreElements())
+				{
+					String o=(String)st.nextElement();
+					//System.out.println(o);
+					if(o.equalsIgnoreCase("+"))
+					{
+						sum=sum+Long.parseLong(st.nextToken().trim());
+						//System.out.println(o+" "+sum);
+					}
+					else if(o.equalsIgnoreCase("*"))
+					{
+						sum=sum*Long.parseLong(st.nextToken().trim());
+						//System.out.println(o+" "+sum);
+					}
+					else if(o.equalsIgnoreCase("-"))
+					{
+							sum=sum-Long.parseLong(st.nextToken().trim());
+						
+						//System.out.println(o+" "+sum);
+					}
+					else if(o.equalsIgnoreCase("/"))
+					{
+						 sum=sum/Long.parseLong(st.nextToken().trim());
+						
+						//System.out.println(o+" "+sum);
+					}
+					else if(o.equalsIgnoreCase("%"))
+					{
+						sum=sum%Long.parseLong(st.nextToken().trim());
+					}
+					else if(o.equalsIgnoreCase("="))
+					{
+						System.out.println(sum);
+						break;
+					}
+				}
+			}
+			t--;
+		}
+	
+	}
+}

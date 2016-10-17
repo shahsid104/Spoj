@@ -1,0 +1,41 @@
+# your code goes here# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 29 13:32:55 2016
+
+@author: User
+"""
+
+import numpy;
+user_number=input() 
+user_number=int(user_number)
+while(user_number!=0):
+ user_number2=input().split()
+ #print(user_number2)
+ if(len(user_number2)==0):
+  continue;
+ count=0
+ maxim=1
+ #print(len(user_number2))
+ for i in range(0,len(user_number2)):
+     if(i<len(user_number2)-1 and len(user_number2[i])==len(user_number2[i+1])):
+       count=count+1
+       #print("1 "+str(count)+" "+ str(i))
+     elif(i>0 and len(user_number2[i])==len(user_number2[i-1])):
+       count=count+1
+       #print("2 "+str(count)+" "+ str(i))
+       if(maxim<count):
+        maxim=count
+       count=0
+        
+     else:
+         count=0
+     if(maxim<count and len(user_number2[i])-len(user_number2[i+1])>0):
+        maxim=count
+        count=0
+     
+ #if(maxim==0):
+ # continue;     
+ print(maxim) 
+ user_number=user_number-1; 
+ #print(user_number)  
+ 

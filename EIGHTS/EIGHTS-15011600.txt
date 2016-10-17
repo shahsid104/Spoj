@@ -1,0 +1,24 @@
+import java.util.*;
+import java.lang.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception,NumberFormatException, IOException
+	{
+		
+		// TODO Auto-generated method stub
+		InputStreamReader ir=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(ir);
+		int totalCases=Integer.parseInt(br.readLine());
+		while(totalCases!=0)
+		{
+		  long k=Long.parseLong((br.readLine()));
+		  long number=192+(250*(k-1));
+		  System.out.println(number);
+		  totalCases--;
+		}
+	}
+}

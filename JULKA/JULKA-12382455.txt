@@ -1,0 +1,46 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int count=10;
+		while(count!=0)
+		{
+			BigInteger total,more,klaud,nat,omore;
+			BigInteger two=new BigInteger("2");
+		 	String tot=sc.nextLine();
+			String mor=sc.nextLine();
+			total=new BigInteger(tot);
+			more=new BigInteger(mor);
+			total=total.divide(two);
+			if(more.mod(two)==BigInteger.ZERO)
+			{
+			  more=more.divide(two);
+			  klaud=total.add(more);
+			  nat=total.subtract(more);
+			  System.out.println(klaud);
+			  System.out.println(nat);
+			  count--;
+			}
+			else
+			{
+			  omore=more.divide(two);
+			  more=more.subtract(omore);
+			  klaud=total.add(more);
+			  nat=total.subtract(omore);
+			  System.out.println(klaud);
+			  System.out.println(nat);
+			  count--;
+			}
+		}
+	}
+}

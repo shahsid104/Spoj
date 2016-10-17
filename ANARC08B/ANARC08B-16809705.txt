@@ -1,0 +1,91 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+		
+	public static void main(String args[]) throws IOException
+	{
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		String a,b;
+		Map m1=new HashMap();
+		Map m2=new HashMap();
+		m1.put("010",1);
+		m1.put("093",2);
+		m1.put("079",3);
+		m1.put("106",4);
+		m1.put("103",5);
+		m1.put("119",6);
+		m1.put("011",7);
+		m1.put("127",8);
+		m1.put("107",9);
+		m1.put("063",0);
+		
+		m2.put(1,"010");
+		m2.put(2,"093");
+		m2.put(3,"079");
+		m2.put(4,"106");
+		m2.put(5,"103");
+		m2.put(6,"119");
+		m2.put(7,"011");
+		m2.put(8,"127");
+		m2.put(9,"107");
+		m2.put(0,"063");
+		while(true)
+		{
+			a=br.readLine();
+			if(!a.equalsIgnoreCase("bye"))
+			{
+				StringTokenizer st=new StringTokenizer(a,"+");
+				a=st.nextToken();
+				//System.out.println(a);
+				String inter=st.nextToken();
+				
+				StringTokenizer st2=new StringTokenizer(inter,"=");
+				b=st2.nextToken();
+				//System.out.println(b);
+				double length1=a.length()/3.0-1;
+				int number=0;
+				//System.out.println(length1);
+				for(int i=0;i<a.length();i=i+3)
+				{
+					String a1=a.substring(i,i+3);
+					number=(int) (number+Integer.valueOf(m1.get(a1).toString())*Math.pow(10.0,length1--));
+				}
+				//System.out.println(number);
+				double length2=b.length()/3.0-1;
+				int number2=0;
+				for(int i=0;i<b.length();i=i+3)
+				{
+					String b1=b.substring(i,i+3);
+					number2=(int) (number2+Double.valueOf(m1.get(b1).toString())*Math.pow(10.0,length2--));
+
+				}
+				int f=number+number2;
+				//System.out.println(f);
+				String value="";
+				while(f!=0)
+				{
+					int l=f%10;
+					//System.out.println(l);
+					//System.out.println(m2.get(l).toString());
+					value=m2.get(l).toString().concat(value);
+					f=f/10;
+				}
+				System.out.println(a+"+"+b+"="+value);
+			}
+			else
+				break;
+		}
+	}
+
+}

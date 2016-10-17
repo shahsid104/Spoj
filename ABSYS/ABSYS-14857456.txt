@@ -1,0 +1,56 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+			// your code goes here
+		InputStreamReader ir=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(ir);
+		int a=Integer.parseInt(br.readLine());
+		while(a>0)
+		{
+			String input=br.readLine();
+			if(input.isEmpty())
+				continue;
+			else
+			{
+				int machulaIndex=input.indexOf("machula");
+				int equalIndex=input.indexOf("=");
+				int plusIndex=input.indexOf("+");
+				if(equalIndex>machulaIndex)
+				{	
+					int number3,number1,number2;
+					if(machulaIndex>plusIndex)
+						number1=Integer.parseInt(input.substring(0,plusIndex-1));
+					else
+						number1=Integer.parseInt(input.substring(plusIndex+2,equalIndex-1));
+					number2=Integer.parseInt(input.substring(equalIndex+2,input.length()));
+					if(number1>number2)
+						number3=number1-number2;
+					else
+						number3=number2-number1;
+					if(machulaIndex>plusIndex)
+						System.out.println(number1+" + "+number3+" = "+number2);
+					else
+						System.out.println(number3+" + "+number1+" = "+number2);					
+				}
+				else
+				{
+					int number1,number2,number3;
+					number1=Integer.parseInt(input.substring(0,plusIndex-1));
+					number2=Integer.parseInt(input.substring(plusIndex+2,equalIndex-1));
+					number3=number1+number2;
+					System.out.println(number1+" + "+number2+" = "+number3);
+				}
+				a--;
+			}
+		}
+	}
+
+		
+}

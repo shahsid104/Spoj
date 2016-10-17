@@ -1,0 +1,138 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+
+		// your code goes here
+		//String[][] matrix= new String[3000][3000];
+		int term=2;
+		int i=0;
+		int j=0;
+		int step=1;
+		
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		
+		int numberOfTerms=Integer.parseInt(br.readLine());
+		
+		while(numberOfTerms!=0)
+	{
+		int termNumber=Integer.parseInt(br.readLine());
+
+	    i=1;
+	    j=1;
+	    step=1;
+	    term=2;
+		
+		while(true)
+		{
+			if(termNumber==1)
+			{
+				System.out.println("TERM "+termNumber+" IS 1/1");
+				break;
+			}
+			if(step==1)
+    	   {
+    		if(term>termNumber)
+    		{
+    			System.out.println("TERM "+termNumber+" IS "+i+"/"+j);
+    		    break;
+    		}
+    		else
+    		{
+    		//System.out.println("step No="+step);	
+    		//System.out.println(i+"/"+(++j));
+    		j++;	
+    		step++;
+    		term++;
+    		}
+    	}
+    	if(step==2)
+    	{
+    		if(term>termNumber)
+    		{
+    			System.out.println("TERM "+termNumber+" IS "+i+"/"+j);
+    		 break;
+    		}
+    		else
+    		{
+    		int k=j-1;
+    		//System.out.println("step No="+step);
+    		while(k!=0)
+    		{
+    			if(term>termNumber)
+    			{
+    				System.out.println("TERM "+termNumber+" IS "+i+"/"+j);
+    			 break;
+    			}
+    			i++;
+    			j--;
+    			//System.out.print((++i)+"/"+(--j)+" ");
+    			term++; 
+    			k--;
+    		}
+    		if(k!=0)
+    			break;
+    		//System.out.println();
+    		step++;
+    		}
+    	}
+    	if(step==3)
+    	{
+    		if(term>termNumber)
+    		{
+    		 System.out.println("TERM "+termNumber+" IS "+i+"/"+j);
+    		 break;
+    		}
+    		else
+    		{
+    		//System.out.println("step No="+step);
+    			i++;
+    		//System.out.println((++i)+"/"+j);
+    		step++;
+    		term++;
+    		}
+    		
+    	}
+    	if(step==4)
+    	{
+    		if(term>termNumber)
+    		{
+    			System.out.println("TERM "+termNumber+" IS "+i+"/"+j);
+    		 break;
+    		}
+    		else
+    		{
+    		int k=i-1;
+    		//System.out.println("step No="+step);
+    			while(k!=0)
+    		{
+    			if(term>termNumber)
+    			{
+    				System.out.println("TERM "+termNumber+" IS "+i+"/"+j);
+    			 break;
+    			}
+    			i--;
+    			j++;
+    			//System.out.print((--i)+"/"+(++j)+" ");
+    			term++;
+    			k--;
+    		}
+    			if(k!=0)
+        			break;
+    		//System.out.println();
+    		step=1;
+    		}
+    	}
+    }
+	numberOfTerms--;
+	}
+	}
+}

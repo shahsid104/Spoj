@@ -1,0 +1,11 @@
+import numpy;
+import math
+user_number=input() 
+user_number=int(user_number)
+while(user_number!=0):
+ user_number2,user_number3,user_number4=input().split()
+ user_number2=int(user_number2)
+ user_number3=int(user_number3)
+ user_number4=int(user_number4)
+ print(user_number2*user_number2-2*user_number3); 
+ user_number=user_number-1;  

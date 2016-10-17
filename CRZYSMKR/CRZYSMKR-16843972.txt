@@ -1,0 +1,21 @@
+import math;
+user_number=input() 
+user_number=int(user_number)
+while(user_number!=0):
+ user_number2=input()
+ user_number2=int(user_number2)
+ if(user_number2==0):
+  print(0)
+  user_number=user_number-1;
+  continue
+ else:
+  number=pow(34,user_number2,34)+(30*user_number2%11);
+ #print(number);
+  if(number==0) :
+   print(0)
+   user_number=user_number-1
+  else :
+   number2=(11*math.ceil(number/11));
+ #print(number2);
+   print(number2-number);
+   user_number=user_number-1;

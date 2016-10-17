@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		// TODO Auto-generated method stub
+		double n=1,div=0.0;
+		Scanner sc=new Scanner(System.in);
+		while(true)
+		{
+			n=sc.nextFloat();
+			if(n==0.00)
+				break;
+			double i=2;
+			int count=0;
+			div=0.0;
+			while(true)
+			{
+				count++; 	
+				div+=1/i++;
+				if(div>=n)
+				{
+					System.out.println(count+" card(s)");
+					break;
+				}
+			}
+		}
+
+	
+		
+	}
+}

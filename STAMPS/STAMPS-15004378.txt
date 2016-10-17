@@ -1,0 +1,65 @@
+import java.util.*;
+import java.lang.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		// TODO Auto-generated method stub
+		int n;
+		Scanner sc=new Scanner(System.in);
+		n=sc.nextInt();
+		String a=sc.nextLine();
+		int k=0;
+		while(k!=n)
+		{
+			long no_Stamps=sc.nextLong();
+			int no_Friends=sc.nextInt();
+			int stamps_Offered[]=new int[no_Friends];
+			for(int i=0;i<no_Friends;i++)
+			{
+				stamps_Offered[i]=sc.nextInt();
+			}
+			for(int i=0;i<no_Friends-1;i++)
+			{
+				for(int j=0;j<no_Friends-i-1;j++)
+				{
+					if(stamps_Offered[j]<stamps_Offered[j+1])
+					{
+						int temp=stamps_Offered[j];
+						stamps_Offered[j]=stamps_Offered[j+1];
+						stamps_Offered[j+1]=temp;
+					}
+				}
+			}
+			long amt=0;
+			int i;
+			for( i=0;i<no_Friends;i++)
+			{
+				if(amt>=no_Stamps)
+					break;
+				else
+				{
+					amt+=stamps_Offered[i];
+				}
+			}
+			if(amt>=no_Stamps)
+			{
+				System.out.println("Scenario #"+(++k)+":");
+				System.out.println(i);
+				System.out.println();
+			}
+			else
+			{
+				System.out.println("Scenario #"+(++k)+":");
+				System.out.println("impossible");
+				System.out.println();
+			}
+
+		}
+
+	
+		
+	}
+}
